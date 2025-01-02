@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import RightSidebar from './Components/Common/SideNavbar/rightSideNavbar';
 
 function App() {
   return (
     <>
-    <div className='flex'>
-    <h1 className="text-4xl font-bold text-red-600">
-         lets start Working go
-      </h1>
+    <div className=''>
+    <RightSidebar/>
       
     </div>
     </>
