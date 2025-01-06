@@ -1,11 +1,16 @@
 import "./App.css";
-import RootRoutes from "./Components/Common/Routes/routes";
+import {BrowserRouter as Route, Router, Routes } from "react-router-dom";
+// import RootRoutes from "./Components/Common/RouteRoutes/routes";
+import UserLogin from "./Components/Common/UserLogin/userlogin";
+import Home from "./Components/Pages/Home/home";
 
 function App() {
   return (
     <>
       <div className="background-img">
-        <RootRoutes />
+        {/* <RootRoutes /> */}
+        <UserLogin/>
+        <Home/>
       </div>
     </>
   );
