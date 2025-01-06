@@ -21,14 +21,14 @@ const RightSidebar = () => {
 
         {/* Status Cards */}
 
-          <div className="" >
-            <div className="" ><input type="" value="" /></div>
+          <div className=" my-2 py-4 px-5 bg-slate-600 rounded-xl" >
+            <div className="text-center" ><input className="bg-transparent border py-1 rounded-full" type="" value="" /></div>
             <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-green-400 shadow-xl font-semibold">6</span> <span className="font-semibold ms-4">Active Tables</span></div>
             <hr className="h-[2px] bg-white my-4 border-white" />
             <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-yellow-400 shadow-xl font-semibold">3</span> <span className="font-semibold ms-4">Available Tables</span></div>
             <hr className="h-[2px] bg-white my-4 border-white" />
             <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-red-400 shadow-xl font-semibold">20</span> <span className="font-semibold ms-4">Reservations</span></div>
-            <hr className="h-[2px] bg-white my-4 border-white" />          </div>
+                    </div>
 
         {/* <div className="mt-6 space-y-4">
           <div className="flex justify-between items-center bg-green-100 py-3 px-4 rounded-lg">
