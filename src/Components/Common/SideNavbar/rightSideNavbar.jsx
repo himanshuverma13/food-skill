@@ -2,25 +2,35 @@ import React from "react";
 
 const RightSidebar = () => {
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className=" h-screen bg-gray-100">
       {/* Sidebar */}
-      <div className="w-64 bg-orange-50 p-4 shadow-md">
+      <div className=" bg-orange-50 p-4 shadow-md">
         {/* Create New Order Button */}
         <button className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-orange-600">
           + Create New Order
         </button>
 
         {/* Search Input */}
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <input
             type="text"
             placeholder="Table or Order status"
             className="w-full border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
-        </div>
+        </div> */}
 
         {/* Status Cards */}
-        <div className="mt-6 space-y-4">
+
+          <div className="" >
+            <div className="" ><input type="" value="" /></div>
+            <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-green-400 shadow-xl font-semibold">6</span> <span className="font-semibold ms-4">Active Tables</span></div>
+            <hr className="h-[2px] bg-white my-4 border-white" />
+            <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-yellow-400 shadow-xl font-semibold">3</span> <span className="font-semibold ms-4">Available Tables</span></div>
+            <hr className="h-[2px] bg-white my-4 border-white" />
+            <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-red-400 shadow-xl font-semibold">20</span> <span className="font-semibold ms-4">Reservations</span></div>
+            <hr className="h-[2px] bg-white my-4 border-white" />          </div>
+
+        {/* <div className="mt-6 space-y-4">
           <div className="flex justify-between items-center bg-green-100 py-3 px-4 rounded-lg">
             <span className="text-green-600 font-semibold">6</span>
             <span className="text-gray-700">Active Tables</span>
@@ -33,7 +43,7 @@ const RightSidebar = () => {
             <span className="text-red-600 font-semibold">20</span>
             <span className="text-gray-700">Reservations</span>
           </div>
-        </div>
+        </div> */}
 
         {/* Schedule New Order Button */}
         <button className="w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-lg mt-6 hover:bg-gray-300">

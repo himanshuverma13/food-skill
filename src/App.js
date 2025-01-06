@@ -1,12 +1,10 @@
-// import logo from './logo.svg';
-// import './App.css';
-import RightSidebar from './Components/Common/SideNavbar/rightSideNavbar';
+import Home from './Components/Pages/Home/home';
 
 function App() {
   return (
     <>
     <div className=''>
-    <RightSidebar/>
+    <Home/>
       
     </div>
     </>
