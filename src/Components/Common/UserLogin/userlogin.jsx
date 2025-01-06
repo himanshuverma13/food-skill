@@ -35,7 +35,7 @@ const UserLogin = () => {
               src={logo}
               alt="food-fusion"
             />
-            <span className="food-fusion cashier-text-color text-5xl ms-1 font-bold">
+            <span className="food-fusion cashier-main-text-color text-5xl ms-1 font-bold">
               FOOD FUSION
             </span>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../Assets/img/logo.png";
-import userImg from "../../Assets/img/userImg.png";
+import logo from "../../Assets/Images/logo/logo.png";
+import userImg from "../../Assets/Images/logo/userImg.png";
 import menu from "../../Assets/icons/menu-board-icon.png";
 import CircleIcons from "../CircleIcons/circleIcons";
 

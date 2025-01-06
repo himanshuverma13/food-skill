@@ -1,82 +1,193 @@
-import React from "react";
+import React, { useState } from "react";
+
+// import images
+import edit from '../../Assets/Images/sidebarImg/edit.svg'
+import call from '../../Assets/Images/sidebarImg/call.svg'
+import trash from '../../Assets/Images/sidebarImg/Trash.svg'
+
 
 const RightSidebar = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className=" h-screen bg-gray-100">
       {/* Sidebar */}
-      <div className=" bg-orange-50 p-4 shadow-md">
+      <div className=" cashier-light-bg-color p-4 shadow-md">
         {/* Create New Order Button */}
-        <button className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-orange-600">
+        <button className="w-full  cashier-main-bg-color text-white py-2 px-4 rounded-full font-semibold">
           + Create New Order
         </button>
 
-        {/* Search Input */}
-        {/* <div className="mt-4">
-          <input
-            type="text"
-            placeholder="Table or Order status"
-            className="w-full border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-        </div> */}
-
-        {/* Status Cards */}
-
-          <div className=" my-2 py-4 px-5 bg-slate-600 rounded-xl" >
-            <div className="text-center" ><input className="bg-transparent border py-1 rounded-full" type="" value="" /></div>
-            <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-green-400 shadow-xl font-semibold">6</span> <span className="font-semibold ms-4">Active Tables</span></div>
-            <hr className="h-[2px] bg-white my-4 border-white" />
-            <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-yellow-400 shadow-xl font-semibold">3</span> <span className="font-semibold ms-4">Available Tables</span></div>
-            <hr className="h-[2px] bg-white my-4 border-white" />
-            <div className="mt-4"><span className="  w-10 h-10 pt-2 text-center inline-block  rounded-full bg-red-400 shadow-xl font-semibold">20</span> <span className="font-semibold ms-4">Reservations</span></div>
-                    </div>
-
-        {/* <div className="mt-6 space-y-4">
-          <div className="flex justify-between items-center bg-green-100 py-3 px-4 rounded-lg">
-            <span className="text-green-600 font-semibold">6</span>
-            <span className="text-gray-700">Active Tables</span>
+        <div className=" my-2 py-2 px-5 bg-[#ffffff4d] rounded-xl">
+          <div className="text-center">
+            <div className="flex items-center bg-transparent border-white border-2 rounded-full px-4 py-2 w-full max-w-md">
+              <span className="text-gray-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 4a7 7 0 100 14 7 7 0 000-14zm10 10l-4-4"
+                  />
+                </svg>
+              </span>
+              <input
+                type="text"
+                placeholder="Table or Order status"
+                className="bg-transparent text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-0 border-none ml-2 w-full"
+              />
+            </div>
           </div>
-          <div className="flex justify-between items-center bg-yellow-100 py-3 px-4 rounded-lg">
-            <span className="text-yellow-600 font-semibold">3</span>
-            <span className="text-gray-700">Available Tables</span>
+          <div className="mt-2.5">
+            <span className="  w-9 h-9 pt-1.5 text-center inline-block  rounded-full bg-green-400 shadow-xl font-semibold">
+              6
+            </span>{" "}
+            <span className="font-semibold ms-4">Active Tables</span>
           </div>
-          <div className="flex justify-between items-center bg-red-100 py-3 px-4 rounded-lg">
-            <span className="text-red-600 font-semibold">20</span>
-            <span className="text-gray-700">Reservations</span>
+          <hr className="h-[2px] my-2 bg-white border-white" />
+          <div className="mt-3">
+            <span className="  w-9 h-9 pt-1.5 text-center inline-block  rounded-full bg-yellow-400 shadow-xl font-semibold">
+              3
+            </span>{" "}
+            <span className="font-semibold ms-4">Available Tables</span>
           </div>
-        </div> */}
+          <hr className="h-[1.5px] my-2 bg-white border-white" />
+          <div className="mt-3">
+            <span className="  w-9 h-9 pt-1.5 text-center inline-block  rounded-full bg-red-400 shadow-xl font-semibold">
+              20
+            </span>{" "}
+            <span className="font-semibold ms-4">Reservations</span>
+          </div>
+        </div>
 
         {/* Schedule New Order Button */}
-        <button className="w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-lg mt-6 hover:bg-gray-300">
+        <button className="w-full bg-[#ffffff4d] py-2 mb-2 px-4 rounded-full border-white border-2">
           + Schedule New Order
         </button>
 
         {/* Scheduled Orders */}
-        
-        <div className="mt-6">
-          <h3 className="text-lg font-semibold mb-4">Scheduled Orders</h3>
+        <div className="w-full max-w-md mx-auto px-2 pt-1 pb-3  bg-[#ffffff4d] rounded-lg shadow-md">
+          {/* Accordion Header */}
+          <div
+            onClick={toggleAccordion}
+            className="flex justify-between items-center cursor-pointer py-2"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-pink-500 rounded-full">
+                <i className="text-white text-lg fas fa-calendar-alt"></i>
+              </div>
+              <h2 className="font-semibold text-lg">Scheduled Orders</h2>
+            </div>
+            <i
+              className={`fas ${
+                isOpen ? "fa-chevron-up" : "fa-chevron-down"
+              } text-gray-600`}
+            ></i>
+          </div>
 
-          {/* Order Card */}
-          <div className="space-y-4">
-            {["Mr. Rahul Vijay", "Ms. Poornima", "Mrs. Anjali"].map((name, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm"
-              >
-                <p className="font-semibold">Name: {name}</p>
-                <p>Booking ID: 123456789</p>
-                <p>Date & Time: 10-12-2024; 5 PM</p>
-                <p>Booking for: {index === 0 ? "4" : index === 1 ? "Family" : "2"}</p>
-
-                {/* Action Buttons */}
-                <div className="flex justify-between items-center mt-3">
-                  <button className="text-blue-500 hover:underline">Edit</button>
-                  <button className="text-green-500 hover:underline">View</button>
-                  <button className="text-red-500 hover:underline">Delete</button>
+          {/* Accordion Content */}
+          {isOpen && (
+            <div className="">
+              {/* First Order */}
+              <hr className="h-[2px] bg-white my-0 border-white" />
+              <div className="px-2  my-2 flex  justify-between  rounded-lg">
+                <div className="">
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Name:{" "}
+                        <span className="font-medium">Mr. Rahul Vijay</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Booking ID:{" "}
+                        <span className="font-medium">123456789</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Date & Time:{" "}
+                        <span className="font-medium">10-12-2024; 5 PM</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Booking for: <span className="font-medium">7</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="">
+                <div className="w-7 h-7 my-1 bg-[#ffffff66] rounded-full flex items-center justify-center"><img className="w-100" src={edit} alt="" /></div>
+                <div className="w-7 h-7 my-1 bg-[#ffffff66] rounded-full flex items-center justify-center"><img className="w-100" src={call} alt="" /></div>
+                <div className="w-7 h-7 my-1 bg-[#ffffff66] rounded-full flex items-center justify-center"><img className="w-100" src={trash} alt="" /></div>
                 </div>
               </div>
-            ))}
-          </div>
+              <hr className="h-[2px] bg-white my-0 border-white" />
+
+              {/* Second Order */}
+              <div className="px-2  my-2 flex  justify-between  rounded-lg">
+                <div className="">
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Name:{" "}
+                        <span className="font-medium">Mr. Rahul Vijay</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Booking ID:{" "}
+                        <span className="font-medium">123456789</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Date & Time:{" "}
+                        <span className="font-medium">10-12-2024; 5 PM</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center my-2">
+                    <div>
+                      <p className="text-sm">
+                        Booking for: <span className="font-medium">7</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="">
+                <div className="w-7 h-7 my-1 bg-[#ffffff66] rounded-full flex items-center justify-center"><img className="w-100" src={edit} alt="" /></div>
+                <div className="w-7 h-7 my-1 bg-[#ffffff66] rounded-full flex items-center justify-center"><img className="w-100" src={call} alt="" /></div>
+                <div className="w-7 h-7 my-1 bg-[#ffffff66] rounded-full flex items-center justify-center"><img className="w-100" src={trash} alt="" /></div>
+                </div>
+              </div>
+              <hr className="h-[2px] bg-white my-0 border-white" />
+            </div>
+          )}
         </div>
+
       </div>
 
       {/* Main Content */}
