@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import LeftSideNavbar from '../../Common/SideNavbar/leftSideNavbar.jsx'
 import RightSidebar from "../../Common/SideNavbar/rightSideNavbar.jsx";
+
+// import img
+import Toggle from '../../Assets/Images/sidebarImg/Group 1171276770.png'
 const Home =()=> {
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
 
@@ -28,26 +31,20 @@ const Home =()=> {
 
       {/* Right Sidebar */}
       <div
-        className={`bg-gray-200 transition-all duration-300 ease-in-out relative ${
+        className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${
           isRightSidebarOpen ? "w-80" : "w-9"
         } overflow-hidden`}
       >
-          <button
+          {/* <button
             onClick={toggleRightSidebar}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded absolute top-1/2 "
           >
             {isRightSidebarOpen ? "Close" : "Open"}
-          </button>
-        {/* <div className="flex justify-between items-center p-4">
-          <h2 className="text-xl font-bold">Right Sidebar</h2>
-        </div>
-        {isRightSidebarOpen && (
-          <ul>
-            <li>Right Sidebar Item 1</li>
-            <li>Right Sidebar Item 2</li>
-            <li>Right Sidebar Item 3</li>
-          </ul>
-        )} */}
+          </button> */}
+          <span className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded absolute top-1/2 "  onClick={toggleRightSidebar}>
+            <img src={Toggle} alt="" />
+          </span>
+        
         <RightSidebar/>
       </div>
     </div>
