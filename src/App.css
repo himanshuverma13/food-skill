@@ -19,11 +19,20 @@
   background-color: var(--admin-color);
 }
 
-.cashier-text-color{
+.cashier-main-text-color{
   color: var(--cashier-main-color);
 }
+.cashier-main-bg-color{
+  background-color: var(--cashier-main-color);
+}
+.cashier-light-bg-color{
+  background-color: var(--cashier-light-color);
+}
+
 
 .background-img{
   background-image: url(../src/Components/Assets/Images/background/background-img.png);
   height: 100vh;
 }
+
+/* ---------right side bar-------------- */
