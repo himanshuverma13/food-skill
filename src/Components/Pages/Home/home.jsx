@@ -11,7 +11,7 @@ const Home =()=> {
   return (
     <div className="flex h-screen">
       {/* Left Sidebar */}
-      <LeftSideNavbar/>
+      <LeftSideNavbar />
 
       {/* Main Content Area */}
       <div className={`flex-grow p-4 transition-all duration-300`}>
