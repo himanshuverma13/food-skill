@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
+/* -----Color Code----- */
+:root{
+  --admin-color: #A8E6CF;
+  --admin-light-color: #CBF0E2;
+  --cashier-main-color: #D79555;
+  --cashier-color: #FFDAB9;
+  --cashier-light-color: #FFE9D5;
+  --staff-color: #FFF9B0;
+  --captain-color: #E3D6F7;
+  --chef-color: #FFB3AB;
+  --light-color: #F1F1F1;
+  --red-color: #DC143C;
+  --green-color: #94D82D;
+  --yellow-color: #FFD700;
+  --purple-color: #6A5ACD;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg-admin{
+  background-color: var(--admin-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cashier-text-color{
+  color: var(--cashier-main-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.background-img{
+  background-image: url(../src/Components/Assets/Images/background/background-img.png);
+  height: 100vh;
 }
