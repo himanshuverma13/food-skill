@@ -51,6 +51,7 @@ const RightSidebar = () => {
         </button>
 
         {/* Scheduled Orders */}
+        
         <div className="mt-6">
           <h3 className="text-lg font-semibold mb-4">Scheduled Orders</h3>
 

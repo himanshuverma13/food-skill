@@ -1,14 +1,12 @@
-import './App.css';
-import UserLogin from './Components/Common/UserLogin/userlogin';
+import "./App.css";
+import RootRoutes from "./Components/Common/Routes/routes";
 
 function App() {
   return (
     <>
-    <div className='background-img'>
-    <UserLogin/>
-    <RightSidebar/>
-      
-    </div>
+      <div className="background-img">
+        <RootRoutes />
+      </div>
     </>
   );
 }
