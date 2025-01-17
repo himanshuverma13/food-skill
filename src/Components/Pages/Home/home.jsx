@@ -12,7 +12,7 @@ const Home =()=> {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-hidden">
       {/* Left Sidebar */}
       <LeftSideNavbar />
 
@@ -33,7 +33,7 @@ const Home =()=> {
       <div
         className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${
           isRightSidebarOpen ? "w-80" : "w-9"
-        } overflow-hidden`}
+        }`}
       >
           {/* <button
             onClick={toggleRightSidebar}
@@ -41,8 +41,8 @@ const Home =()=> {
           >
             {isRightSidebarOpen ? "Close" : "Open"}
           </button> */}
-          <span className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded absolute top-1/2 "  onClick={toggleRightSidebar}>
-            <img src={Toggle} alt="" />
+          <span className="bg-blue-700 hover:bg-blue-700 font-bold p-3 rounded-full absolute top-1/2 -left-5"  onClick={toggleRightSidebar}>
+            <img src={Toggle} alt="Loading" />
           </span>
         
         <RightSidebar/>
