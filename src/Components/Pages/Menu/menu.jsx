@@ -75,11 +75,11 @@ const Menu = () => {
                 <LeftSideNavbar />
                 {/* Main Content Area */}
                 <div className={`flex-grow p-4 transition-all duration-300`}>
-                    {/* <div className='w-1/6'>
+                    <div className='grid grid-cols-1 grid-rows-1 gap-0'>
                         <MenuSlider />
-                    </div> */}
+                    </div>
                     <h1 className='font-bold text-xl'>Starters</h1>
-                    <div className={`grid mt-4 ${isRightSidebarOpen == true ? "grid-cols-4" : "grid-cols-5"} gap-4`}>
+                    <div className={`grid mt-4 ${isRightSidebarOpen == true ? "grid-cols-3" : "grid-cols-5"} gap-4`}>
                         {MenuCard.map((item, index) => (
                             <div key={index} className={`bg-white rounded-lg shadow-md px-2 py-2 w-56 ${item.cardBorder}`}>
                                 <div className='grid grid-cols-2'>
