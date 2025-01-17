@@ -21,8 +21,12 @@ const LeftSideNavbar = () => {
           <h6>Cashier</h6>
         </div>
         <ul className="my-3">
-          <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Home</li>
-          <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Table</li>
+          <NavLink to={"/home"}>
+            <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Home</li>
+          </NavLink>
+          <NavLink to={"/table"}>
+            <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Table</li>
+          </NavLink>
           <NavLink to={"/menu"}>
             <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Menu</li>
           </NavLink>
@@ -31,7 +35,7 @@ const LeftSideNavbar = () => {
           <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Staff Data</li>
           <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Settings</li>
           <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Logout</li>
-        </ul>  
+        </ul>
       </div>
     </div>
   );
