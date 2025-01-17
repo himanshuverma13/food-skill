@@ -3,7 +3,7 @@ import LeftSideNavbar from '../../Common/SideNavbar/leftSideNavbar.jsx'
 import RightSidebar from "../../Common/SideNavbar/rightSideNavbar.jsx";
 
 // import img
-import Toggle from '../../Assets/Images/sidebarImg/Group 1171276770.png'
+import Toggle from '../../Assets/Images/sidebarImg/toggle.png'
 const Home =()=> {
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
 
@@ -19,7 +19,6 @@ const Home =()=> {
       {/* Main Content Area */}
       <div className={`flex-grow p-4 transition-all duration-300`}>
         <div className={`grid ${isRightSidebarOpen == true ? "grid-cols-4" : "grid-cols-5" } gap-4`}>
-          {/* Cards */}
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} onClick={toggleRightSidebar} className="bg-white rounded-lg shadow-md p-4 w-56">
               <h2>Card {i}</h2>

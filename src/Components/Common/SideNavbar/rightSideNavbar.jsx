@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import edit from '../../Assets/Images/sidebarImg/edit.svg'
 import call from '../../Assets/Images/sidebarImg/call.svg'
 import trash from '../../Assets/Images/sidebarImg/Trash.svg'
+import clendar from '../../Assets/Images/sidebarImg/calendar-tick.svg'
+import openSchedule from '../../Assets/Images/sidebarImg/openSchedule.svg'
+import closeSchedule from '../../Assets/Images/sidebarImg/openSchedule.svg'
+
 
 
 const RightSidebar = () => {
@@ -71,28 +75,29 @@ const RightSidebar = () => {
         </div>
 
         {/* Schedule New Order Button */}
-        <button className="w-full bg-[#ffffff4d] py-2 mb-2 px-4 rounded-full border-white border-2">
+        <button className="w-full bg-[#ffffff4d] py-2 mb-3 mt-2 px-4 rounded-full border-white border-2">
           + Schedule New Order
         </button>
 
         {/* Scheduled Orders */}
-        <div className="w-full max-w-md mx-auto px-2 pt-1 pb-3  bg-[#ffffff4d] rounded-lg shadow-md">
+        <div className="w-full max-w-md mx-auto px-2 pt-1 pb-1  bg-[#ffffff4d] rounded-lg shadow-md">
           {/* Accordion Header */}
           <div
             onClick={toggleAccordion}
             className="flex justify-between items-center cursor-pointer py-2"
           >
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-pink-500 rounded-full">
-                <i className="text-white text-lg fas fa-calendar-alt"></i>
+              <div className="p-2 bg-[#dc143c1a] rounded-full">
+                <img src={clendar} alt="" />
               </div>
               <h2 className="font-semibold text-lg">Scheduled Orders</h2>
             </div>
-            <i
+            {/* <i
               className={`fas ${
                 isOpen ? "fa-chevron-up" : "fa-chevron-down"
               } text-gray-600`}
-            ></i>
+            ></i> */}
+            <img src={isOpen ? openSchedule : closeSchedule} alt="" />
           </div>
 
           {/* Accordion Content */}
