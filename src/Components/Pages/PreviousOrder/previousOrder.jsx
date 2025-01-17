@@ -52,7 +52,7 @@ const PreviousOrder = () => {
             <div className="font-medium"><div>Date : 12-12-24</div><div>Time:05:30 PM</div></div>
           {/* Dine In Tag */}
 
-            <div className="text-green-600 h-5 text-xs font-semibold bg-green-100 px-2 py-0 rounded-md inline-block ">
+            <div className="text-green-600 h-full text-xs font-semibold bg-green-100 px-2 py-1 rounded-md inline-block ">
             Dine In
           </div>
           </div>
@@ -65,6 +65,7 @@ const PreviousOrder = () => {
               <span className="text-right">Price</span>
             </div>
 
+            <div className="h-[100px] overflow-auto order-card-scroll">
             <div className="grid grid-cols-3 text-gray-700 py-2">
               <span>Veg Pizza</span>
               <span className="text-center">1</span>
@@ -74,6 +75,12 @@ const PreviousOrder = () => {
               <span>Samosa</span>
               <span className="text-center">2</span>
               <span className="text-right">₹ 40</span>
+            </div>
+            <div className="grid grid-cols-3 text-gray-700 py-2">
+              <span>Samosa</span>
+              <span className="text-center">2</span>
+              <span className="text-right">₹ 40</span>
+            </div>
             </div>
 
             {/* Total */}

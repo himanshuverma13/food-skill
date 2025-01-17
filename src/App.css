@@ -36,3 +36,9 @@
 }
 
 /* ---------right side bar-------------- */
+
+
+/* --------------- scroll bar css ----------------- */
+.order-card-scroll::-webkit-scrollbar{
+  display: none;
+}
