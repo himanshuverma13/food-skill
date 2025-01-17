@@ -16,13 +16,13 @@ const RightSidebar = () => {
   return (
     <div className=" h-screen bg-gray-100">
       {/* Sidebar */}
-      <div className=" cashier-light-bg-color p-4 shadow-md">
+      <div className=" cashier-light-bg-color p-6 shadow-md z-0">
         {/* Create New Order Button */}
         <button className="w-full  cashier-main-bg-color text-white py-2 px-4 rounded-full font-semibold">
           + Create New Order
         </button>
 
-        <div className=" my-2 py-2 px-5 bg-[#ffffff4d] rounded-xl">
+        <div className="my-2 py-2 px-5 bg-[#ffffff4d] rounded-xl">
           <div className="text-center">
             <div className="flex items-center bg-transparent border-white border-2 rounded-full px-4 py-2 w-full max-w-md">
               <span className="text-gray-400">

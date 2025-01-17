@@ -8,6 +8,7 @@ import billing from "../../Assets/Images/Login-img/cashier.png";
 import staff from "../../Assets/Images/Login-img/staff.png";
 import captain from "../../Assets/Images/Login-img/captain.png";
 import { RxCross2 } from "react-icons/rx";
+import { NavLink } from "react-router-dom";
 
 // import Loader from "../buttonLoader/buttonLoader";
 
@@ -70,10 +71,10 @@ const UserLoginModal = ({ isOpen, closeModal, selectedUser, onSubmit }) => {
           aria-hidden="true"
           onClick={handleModalClose}
         />
-        <div className="relative bg-white p-6 rounded-2xl shadow-lg z-20 h-[440px] w-[540px]">
+        <div className="relative bg-white p-6 rounded-2xl shadow-lg z-20">
           <div className="flex justify-end">
             <div className="flex justify-center items-center bg-gray-200 h-9 w-9 rounded-full">
-            <RxCross2 className="text-gray-400 text-lg"/>
+            <RxCross2 className="text-gray-400 text-lg cursor-pointer" onClick={handleModalClose}/>
             </div>
           </div>
           <div className={`h-[108px] w-[108px] shadow-xl text-center m-auto rounded-full ${setUserImage()?.bg}`}>
@@ -99,12 +100,14 @@ const UserLoginModal = ({ isOpen, closeModal, selectedUser, onSubmit }) => {
               </label>
             </div>
             <div className="flex justify-center">
-              <button
+             <NavLink to={"/home"}>
+             <button
                 className="bg-blue-500 flex items-center justify-center text-white px-4 py-2 rounded"
                 type="submit"
               >
                 <span className={isSubmitting ? "me-2" : ""}>Submit</span>
               </button>
+             </NavLink>
             </div>
           </form>
         </div>

@@ -1,11 +1,13 @@
 import './App.css';
-import Home from '../src/Components/Pages/Home/home'
+import RouteRoutes from './Components/Common/RouteRoutes/routes';
+// import Home from '../src/Components/Pages/Home/home'
 
 function App() {
   return (
     <>
     <div className='background-img'>
-      <Home/>
+      {/* <Home/> */}
+      <RouteRoutes/>
     </div>
     </>
   );
