@@ -4,7 +4,7 @@ import LeftSideNavbar from '../../Common/SideNavbar/leftSideNavbar';
 import RightSidebar from '../../Common/SideNavbar/rightSideNavbar';
 
 // import img
-import Toggle from '../../Assets/Images/sidebarImg/Group 1171276770.png'
+import Toggle from '../../Assets/Images/sidebarImg/Group-1171276770.svg'
 import Food1 from "../../Assets/Images/menuCard-img/food-1.png";
 import Food2 from "../../Assets/Images/menuCard-img/food-2.png";
 import Food3 from "../../Assets/Images/menuCard-img/food-3.png";
@@ -65,11 +65,11 @@ const Menu = () => {
                 <LeftSideNavbar />
                 {/* Main Content Area */}
                 <div className={`flex-grow p-4 transition-all duration-300`}>
-                    {/* <div>
+                    <div className='grid grid-cols-1 grid-rows-1 gap-0'>
                         <MenuSlider />
-                    </div> */}
+                    </div>
                     <h1 className='font-bold text-xl'>Starters</h1>
-                    <div className={`grid mt-4 ${isRightSidebarOpen == true ? "grid-cols-4" : "grid-cols-5"} gap-4`}>
+                    <div className={`grid mt-4 ${isRightSidebarOpen == true ? "grid-cols-3" : "grid-cols-5"} gap-4`}>
                         {MenuCard.map((item, index) => (
                             <div key={index} onClick={toggleRightSidebar} className={`bg-white rounded-lg shadow-md px-2 py-2 w-56 ${item.cardBorder}`}>
                                 <div className='grid grid-cols-2'>
