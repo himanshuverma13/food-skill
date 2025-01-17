@@ -5,31 +5,34 @@ const PreviousOrderCards = () => {
         <>
 
             {/* <div> */}
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                 <div className="max-w-sm bg-white rounded-3xl shadow-xl  p-4 mb-4">
                     {/* Date & Time */}
                     <div className="flex justify-between text-gray-600 text-sm pb-2">
-                        <div className='flex'>
+                        {/* hidden details */}
+                        <div className='flex hidden'>
                             <div className='uppercase rounded-md bg-white p-2 text-center border mr-2'>RV</div>
                             <div className="font-semibold">
                                 <div className='text-md text-black'>Rahul Vijay</div>
                                 <div className='text-gray-400 text-xs'>Table 2</div>
                             </div>
                         </div>
+
+                        <div className="font-medium">
+                            <div>Date : 12-12-24</div>
+                            <div>Time:05:30 PM</div>
+                        </div>
                         {/* Dine In Tag */}
 
                         <div className="text-green-600 h-full text-xs font-semibold bg-green-100 px-2 py-1 rounded-md inline-block ">
                             Dine In
                         </div>
-                    </div>
-                    <div className="flex justify-between text-gray-600 text-sm pb-2">
-                        <div className="font-medium"><div>Date : 12-12-24</div><div>Time:05:30 PM</div></div>
-                        {/* Dine In Tag */}
-
-                        <div className="h-full text-xs font-semibold bg-gray-100 px-4 py-1 rounded-md inline-block ">
+                        {/* hidden details */}
+                        <div className="h-full text-xs font-semibold bg-gray-100 px-4 py-1 rounded-md hidden">
                             05:25
                         </div>
                     </div>
+                   
 
                     {/* Items Table */}
                     <div className="mt-0 border-t border-gray-200">

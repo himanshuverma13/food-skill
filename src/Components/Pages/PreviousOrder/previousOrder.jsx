@@ -25,7 +25,7 @@ const PreviousOrder = () => {
       name: "Rahul Vijay",
     },
     {
-      icon: <IoCallOutline className="text-light-green text-lg"/>,
+      icon: <IoCallOutline className="text-light-green text-lg" />,
       color: "bg-gray-50 rounded-full flex items-center justify-center py-3",
       title: "Contact Number",
       name: 1234737577,
@@ -37,7 +37,7 @@ const PreviousOrder = () => {
       name: "Avshd@gmail.com",
     },
     {
-      icon: <IoHomeOutline  className=""/>,
+      icon: <IoHomeOutline className="" />,
       color: "bg-gray-50 rounded-full flex items-center justify-center py-3",
       title: "Delivery Address",
       name: "132 main street Appartment 4B, Indore Madhya Pradesh, 85558",
@@ -57,18 +57,16 @@ const PreviousOrder = () => {
             <span className="mr-2">Book Table</span> &gt;{" "}
             <span className="ml-2">Generate Order</span>
           </div>
-       
-
 
           {/* Order Header */}
-          <div className="flex justify-between items-center mb-4">
+          {/* <div className="flex justify-between items-center mb-4">
             <span className="text-gray-800 font-medium text-lg">
               Order Number - #123
             </span>
             <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
               <span className="text-gray-500">🔔</span>
             </button>
-          </div>
+          </div> */}
 
         </div>
 
@@ -77,27 +75,25 @@ const PreviousOrder = () => {
             {CustomerDetailsCard.map((items, index) => (
               <div className="grid grid-cols-5 grid-rows-1 gap-4 border-r">
                 <div>
-                 <div  className={`uppercase  ${items.color}`}>
-                 {items.icon}
-                 </div>
+                  <div className={`uppercase  ${items.color}`}>
+                    {items.icon}
+                  </div>
                 </div>
-              <div className="col-span-4">
-              <div className="text-xs text-gray-400 font-semibold">{items.title}</div>
-                <div className="font-semibold text-sm">
-                  {items.name}
+                <div className="col-span-4">
+                  <div className="text-xs text-gray-400 font-semibold">{items.title}</div>
+                  <div className="font-semibold text-sm">
+                    {items.name}
+                  </div>
                 </div>
-              </div>
               </div>
             ))}
           </div>
-
         </div>
 
         {/* Previous Order Cards */}
-        <div className={`grid ${isRightSidebarOpen == true ? "grid-cols-2" : "grid-cols-3"} gap-1`}>
+        <div className={`grid h-full overflow-auto ${isRightSidebarOpen == true ? "grid-cols-2" : "grid-cols-3"} gap-1`}>
           <PreviousOrderCards />
         </div>
-
       </div>
 
       {/* Right Sidebar */}
@@ -106,9 +102,7 @@ const PreviousOrder = () => {
         <span className="bg-blue-700 hover:bg-blue-700 font-bold p-1 rounded-full absolute top-1/2 -left-5" onClick={toggleRightSidebar}>
           {/* <img src={Toggle} alt="Loading" /> */}
           <MdOutlineKeyboardDoubleArrowLeft className='text-3xl text-white font-semibold' />
-
         </span>
-
         <RightSidebar />
         {/* <FoodCard/> */}
       </div>
