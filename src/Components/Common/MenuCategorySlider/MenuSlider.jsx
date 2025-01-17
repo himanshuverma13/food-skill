@@ -14,7 +14,7 @@ const MenuSlider = () => {
         speed: 500,
         // autoplay: true,
         // autoplaySpeed: 1000,
-        slidesToShow: 9,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
             {
