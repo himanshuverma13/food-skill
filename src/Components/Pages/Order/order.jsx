@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import LeftSideNavbar from '../../Common/SideNavbar/leftSideNavbar.jsx'
+import LeftSideNavbar from "../../Common/SideNavbar/leftSideNavbar.jsx";
 import RightSidebar from "../../Common/SideNavbar/rightSideNavbar.jsx";
+import { connect, useDispatch } from "react-redux";
 
 // import img
 // import Toggle from '../../Assets/Images/sidebarImg/toggle.png'
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import Button from "../../Common/button/button.jsx";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import { TableBooking } from "../../Common/Redux/TableBooking/tableBookingSlice.jsx";
 // import FoodCard from "../../Common/Test/menuItems.jsx";
 const Order = () => {
   const {
@@ -17,13 +20,24 @@ const Order = () => {
   } = useForm();
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
 
+  //  get table no from URL
+  const params = useParams()
+  const dispatch = useDispatch();
+
   const toggleRightSidebar = () => {
     setIsRightSidebarOpen(!isRightSidebarOpen);
   };
   const onSubmit = (data) => {
-    console.log('data: ', data);
-
-  }
+    const payload = {
+      tableNo: params.tableNo,
+      customerName: data?.name,
+      customerEmail: data?.email,
+      customerPhone: data?.number,
+      orderTotal: data?.orderType,
+      orderStatus: "book",
+    }
+    dispatch(TableBooking(payload));
+  };
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -32,7 +46,6 @@ const Order = () => {
 
       {/* Main Content Area */}
       <div className={`flex-grow p-4 transition-all duration-300`}>
-
         {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-4">
           <span className="mr-2">Book Table</span> &gt;{" "}
@@ -62,8 +75,9 @@ const Order = () => {
                   className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   {...register("name", { required: "Name is required" })}
                 />
-                {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
-
+                {errors.name && (
+                  <p className="text-red-500 text-xs">{errors.name.message}</p>
+                )}
               </div>
               {/* Contact No */}
               <div>
@@ -74,34 +88,46 @@ const Order = () => {
                   className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   {...register("number", { required: "Number is required" })}
                 />
-                {errors.number && <p className="text-red-500 text-xs">{errors.number.message}</p>}
-
+                {errors.number && (
+                  <p className="text-red-500 text-xs">
+                    {errors.number.message}
+                  </p>
+                )}
               </div>
               {/* Order Type */}
               <div>
                 <label className="text-gray-500 text-sm">Order Type</label>
                 <select
                   className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  {...register("orderType", { required: "Order type is required" })}
+                  {...register("orderType", {
+                    required: "Order type is required",
+                  })}
                 >
                   <option value="">Select Order Type</option>
                   <option value="Dine In">Dine In</option>
                   <option value="Takeaway">Takeaway</option>
                   <option value="Delivery">Delivery</option>
                 </select>
-                {errors.orderType && <p className="text-red-500 text-xs mt-1">{errors.orderType.message}</p>}
+                {errors.orderType && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.orderType.message}
+                  </p>
+                )}
               </div>
               {/* Email */}
               <div>
-                <label className="text-gray-500 text-sm">E-mail (Optional)</label>
+                <label className="text-gray-500 text-sm">
+                  E-mail (Optional)
+                </label>
                 <input
                   type="email"
                   placeholder="Customer's E-mail ID here"
                   className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   {...register("email", { required: "Email is required" })}
                 />
-                {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
-
+                {errors.email && (
+                  <p className="text-red-500 text-xs">{errors.email.message}</p>
+                )}
               </div>
               {/* Table No */}
               <div>
@@ -122,7 +148,8 @@ const Order = () => {
               <button className="px-6 py-2 text-gray-400 bg-gray-50 rounded-full border border-gray-300">
                 View Previous Orders
               </button>
-              <button className="px-7 py-2 bg-gray-300 text-gray-600 rounded-full"
+              <button
+                className="px-7 py-2 bg-gray-300 text-gray-600 rounded-full"
                 type="submit"
               >
                 Save
@@ -183,18 +210,23 @@ const Order = () => {
       </div>
 
       {/* Right Sidebar */}
-      <div className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-9"}`}
+      <div
+        className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${
+          isRightSidebarOpen ? "w-80" : "w-9"
+        }`}
       >
-        <span className="bg-blue-700 hover:bg-blue-700 font-bold p-1 cursor-pointer rounded-full absolute top-1/2 -left-5" onClick={toggleRightSidebar}>
+        <span
+          className="bg-blue-700 hover:bg-blue-700 font-bold p-1 cursor-pointer rounded-full absolute top-1/2 -left-5"
+          onClick={toggleRightSidebar}
+        >
           {/* <img src={Toggle} alt="Loading" /> */}
-          <MdOutlineKeyboardDoubleArrowLeft className='text-3xl text-white font-semibold' />
+          <MdOutlineKeyboardDoubleArrowLeft className="text-3xl text-white font-semibold" />
         </span>
-
 
         <RightSidebar />
         {/* <FoodCard/> */}
       </div>
     </div>
   );
-}
+};
 export default Order;
