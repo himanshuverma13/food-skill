@@ -42,7 +42,7 @@ const PreviousOrderCards = () => {
                             <span className="text-right">Price</span>
                         </div>
 
-                        <div className="h-[100px] overflow-auto order-card-scroll">
+                        <div className="h-[100px] overflow-auto hidden-scroll">
                             <div className="grid grid-cols-3 text-gray-700 py-1">
                                 <span>Veg Pizza</span>
                                 <span className="text-center">1</span>

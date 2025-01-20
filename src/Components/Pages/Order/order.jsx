@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import LeftSideNavbar from '../../Common/SideNavbar/leftSideNavbar.jsx'
+import LeftSideNavbar from "../../Common/SideNavbar/leftSideNavbar.jsx";
 import RightSidebar from "../../Common/SideNavbar/rightSideNavbar.jsx";
+import { connect, useDispatch } from "react-redux";
 
 // import img
 // import Toggle from '../../Assets/Images/sidebarImg/toggle.png'
@@ -9,6 +10,8 @@ import Button from "../../Common/button/button.jsx";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import Navbar from "../../Common/Navbar/navbar.jsx";
+import { useParams } from "react-router-dom";
+import { TableBooking } from "../../Common/Redux/TableBooking/tableBookingSlice.jsx";
 // import FoodCard from "../../Common/Test/menuItems.jsx";
 const Order = () => {
   const {
@@ -18,13 +21,25 @@ const Order = () => {
     formState: { errors },
   } = useForm();
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
+
+  //  get table no from URL
+  const params = useParams()
+  const dispatch = useDispatch();
+
   const toggleRightSidebar = () => {
     setIsRightSidebarOpen(!isRightSidebarOpen);
   };
   const onSubmit = (data) => {
-    console.log('data: ', data);
-  }
-
+    const payload = {
+      tableNo: params.tableNo,
+      customerName: data?.name,
+      customerEmail: data?.email,
+      customerPhone: data?.number,
+      orderTotal: data?.orderType,
+      orderStatus: "book",
+    }
+    dispatch(TableBooking(payload));
+  };
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -63,8 +78,9 @@ const Order = () => {
                   className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
                   {...register("name")}
                 />
-                {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
-
+                {errors.name && (
+                  <p className="text-red-500 text-xs">{errors.name.message}</p>
+                )}
               </div>
               {/* Contact No */}
               <div>
@@ -75,8 +91,11 @@ const Order = () => {
                   className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
                   {...register("number")}
                 />
-                {errors.number && <p className="text-red-500 text-xs">{errors.number.message}</p>}
-
+                {errors.number && (
+                  <p className="text-red-500 text-xs">
+                    {errors.number.message}
+                  </p>
+                )}
               </div>
               {/* Order Type */}
               <div>
@@ -90,7 +109,11 @@ const Order = () => {
                   <option value="Takeaway">Takeaway</option>
                   <option value="Delivery">Delivery</option>
                 </select>
-                {errors.orderType && <p className="text-red-500 text-xs mt-1">{errors.orderType.message}</p>}
+                {errors.orderType && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.orderType.message}
+                  </p>
+                )}
               </div>
               {/* Email */}
               <div>
@@ -101,8 +124,9 @@ const Order = () => {
                   className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
                   {...register("email")}
                 />
-                {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
-
+                {errors.email && (
+                  <p className="text-red-500 text-xs">{errors.email.message}</p>
+                )}
               </div>
               {/* Table No */}
               <div>
@@ -189,16 +213,18 @@ const Order = () => {
       {/* Right Sidebar */}
       <div className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-7"}`}
       >
-        <span className="bg-blue-700 hover:bg-blue-700 font-bold p-1 cursor-pointer rounded-full absolute top-1/2 -left-5" onClick={toggleRightSidebar}>
+        <span
+          className="bg-blue-700 hover:bg-blue-700 font-bold p-1 cursor-pointer rounded-full absolute top-1/2 -left-5"
+          onClick={toggleRightSidebar}
+        >
           {/* <img src={Toggle} alt="Loading" /> */}
-          <MdOutlineKeyboardDoubleArrowLeft className='text-3xl text-white font-semibold' />
+          <MdOutlineKeyboardDoubleArrowLeft className="text-3xl text-white font-semibold" />
         </span>
-
 
         <RightSidebar />
         {/* <FoodCard/> */}
       </div>
     </div>
   );
-}
+};
 export default Order;

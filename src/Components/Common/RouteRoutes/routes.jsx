@@ -17,6 +17,7 @@ const RouteRoutes = () => {
                     <Route path="/table" element={<Table />}></Route>
                     <Route path="/previousorder" element={<PreviousOrder />}></Route>
                     <Route path="/order" element={<Order />}></Route>
+                    <Route path="/order/:tableNo" element={<Order />}></Route>
 
 
 

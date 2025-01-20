@@ -30,13 +30,13 @@ const Home = () => {
             className={`grid ${isRightSidebarOpen == true ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3 lg:grid-cols-6"
               } gap-4`}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i,index) => (
               <>
                 {/* <div key={i} onClick={toggleRightSidebar} className="bg-white rounded-lg shadow-md p-4 ">
               <h2>Card {i}</h2>
               <p>Some content for card {i}</p>
             </div> */}
-                <TableCard />
+                <TableCard tableStatus={index == 1 ? "book" :  index == 2 ? "pending" : index == 3 ? "process" : index == 4 ? "reserve" : "blank"}  index={index} tableNo={i} />
               </>
             ))}
           </div>
@@ -47,26 +47,27 @@ const Home = () => {
             className={`grid ${isRightSidebarOpen == true ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3 lg:grid-cols-6"
               } gap-4`}
           >
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {[1, 2, 3, 4, 5, 6].map((i, index) => (
               <>
-                <TableCard />
+                <TableCard tableStatus={index == 4 ? "blank" : ""} index={index} tableNo={i} />
               </>
             ))}
           </div>
           {/* -------- for family member table ---------- */}
           <hr className="mt-3 mb-1" />
           <div className="flex justify-between">
-            <span className="text-base font-semibold">Table for family members</span>
-            <span className="text-sm font-light ">Max Capacity 12 members</span>
-
+              <span className="text-base font-semibold">
+            Table for family members
+          </span>
+              <span className="text-sm font-light ">Max Capacity 12 members</span>
           </div>
           <div
             className={`grid ${isRightSidebarOpen == true ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3 lg:grid-cols-6"
               } gap-4`}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i, index) => (
               <>
-                <TableCard />
+                <TableCard tableStatus={index == 4 ? "blank" : ""} index={index} tableNo={i} />
               </>
             ))}
           </div>
