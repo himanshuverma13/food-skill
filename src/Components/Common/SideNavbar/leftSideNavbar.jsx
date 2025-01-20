@@ -34,7 +34,9 @@ const LeftSideNavbar = () => {
             <li className="flex cursor-pointer items-center lg:text-base md:text-sm font-medium hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full lg:mx-10 md:mx-6 text-center my-3"><CircleIcons icon={menu} />Orders</li>
           </NavLink>
           <li className="flex cursor-pointer items-center lg:text-base md:text-xs font-medium hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full lg:mx-10 md:mx-6 text-center my-3"><CircleIcons icon={menu} />Schedule</li>
-          <li className="flex cursor-pointer items-center lg:text-base md:text-xs font-medium hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full lg:mx-10 md:mx-6 text-center my-3"><CircleIcons icon={menu} />Staff Data</li>
+          <NavLink to={"/staffdata"}>
+            <li className="flex cursor-pointer items-center lg:text-base md:text-xs font-medium hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full lg:mx-10 md:mx-6 text-center my-3"><CircleIcons icon={menu} />Staff Data</li>
+          </NavLink>
           <li className="flex cursor-pointer items-center lg:text-base md:text-xs font-medium hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full lg:mx-10 md:mx-6 text-center my-3"><CircleIcons icon={menu} />Settings</li>
           <li className="flex cursor-pointer items-center lg:text-base md:text-xs font-medium hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full lg:mx-10 md:mx-6 text-center my-3"><CircleIcons icon={menu} />Logout</li>
         </ul>
