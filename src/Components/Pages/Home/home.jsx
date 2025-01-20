@@ -30,7 +30,7 @@ const Home = () => {
             className={`grid ${isRightSidebarOpen == true ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3 lg:grid-cols-6"
               } gap-4`}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i,index) => (
               <>
                 {/* <div key={i} onClick={toggleRightSidebar} className="bg-white rounded-lg shadow-md p-4 ">
               <h2>Card {i}</h2>
