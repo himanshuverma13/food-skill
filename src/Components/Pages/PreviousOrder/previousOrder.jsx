@@ -103,7 +103,7 @@ const PreviousOrder = () => {
         </div>
 
         {/* Previous Order Cards */}
-        <div className={`grid h-full order-card-scroll overflow-auto ${isRightSidebarOpen == true ? "grid-cols-2" : "grid-cols-3"} gap-1`}>
+        <div className={`grid h-full hidden-scroll overflow-auto ${isRightSidebarOpen == true ? "grid-cols-2" : "grid-cols-3"} gap-1`}>
           <PreviousOrderCards />
         </div>
       </div>
