@@ -3,24 +3,37 @@ import LeftSideNavbar from '../../Common/SideNavbar/leftSideNavbar.jsx'
 import RightSidebar from "../../Common/SideNavbar/rightSideNavbar.jsx";
 
 // import img
-import Toggle from '../../Assets/Images/sidebarImg/toggle.png'
+// import Toggle from '../../Assets/Images/sidebarImg/toggle.png'
+import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
+import Button from "../../Common/button/button.jsx";
+import { useForm } from "react-hook-form";
 // import FoodCard from "../../Common/Test/menuItems.jsx";
-const Order =()=> {
+const Order = () => {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
 
   const toggleRightSidebar = () => {
     setIsRightSidebarOpen(!isRightSidebarOpen);
   };
+  const onSubmit = (data) => {
+    console.log('data: ', data);
+
+  }
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-hidden">
       {/* Left Sidebar */}
       <LeftSideNavbar />
 
       {/* Main Content Area */}
       <div className={`flex-grow p-4 transition-all duration-300`}>
 
-     {/* Breadcrumb */}
+        {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-4">
           <span className="mr-2">Book Table</span> &gt;{" "}
           <span className="ml-2">Generate Order</span>
@@ -38,77 +51,97 @@ const Order =()=> {
 
         {/* Order Details */}
         <div className="bg-white rounded-lg shadow-md p-6 ">
-          <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
-            {/* Name */}
-            <div>
-              <label className="text-gray-500 text-sm">Name</label>
-              <input
-                type="text"
-                placeholder="Customer's name here"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            {/* Contact No */}
-            <div>
-              <label className="text-gray-500 text-sm">Contact No</label>
-              <input
-                type="text"
-                placeholder="Customer's contact no here"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            {/* Order Type */}
-            <div>
-              <label className="text-gray-500 text-sm">Order Type</label>
-              <select className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                <option>Dine In</option>
-                <option>Takeaway</option>
-                <option>Delivery</option>
-              </select>
-            </div>
-            {/* Email */}
-            <div>
-              <label className="text-gray-500 text-sm">E-mail (Optional)</label>
-              <input
-                type="email"
-                placeholder="Customer's E-mail ID here"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            {/* Table No */}
-            <div>
-              <label className="text-gray-500 text-sm">Table No</label>
-              <select className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
+              {/* Name */}
+              <div>
+                <label className="text-gray-500 text-sm">Name</label>
+                <input
+                  type="text"
+                  placeholder="Customer's name here"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  {...register("name", { required: "Name is required" })}
+                />
+                {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
 
-          {/* Action Buttons */}
-          <div className="flex mt-6 space-x-4">
-            <button className="px-4 py-2 text-gray-400 bg-gray-100 rounded-lg border border-gray-300">
-              View Previous Orders
-            </button>
-            <button className="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg">
-              Save
-            </button>
-          </div>
+              </div>
+              {/* Contact No */}
+              <div>
+                <label className="text-gray-500 text-sm">Contact No</label>
+                <input
+                  type="text"
+                  placeholder="Customer's contact no here"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  {...register("number", { required: "Number is required" })}
+                />
+                {errors.number && <p className="text-red-500 text-xs">{errors.number.message}</p>}
+
+              </div>
+              {/* Order Type */}
+              <div>
+                <label className="text-gray-500 text-sm">Order Type</label>
+                <select
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  {...register("orderType", { required: "Order type is required" })}
+                >
+                  <option value="">Select Order Type</option>
+                  <option value="Dine In">Dine In</option>
+                  <option value="Takeaway">Takeaway</option>
+                  <option value="Delivery">Delivery</option>
+                </select>
+                {errors.orderType && <p className="text-red-500 text-xs mt-1">{errors.orderType.message}</p>}
+              </div>
+              {/* Email */}
+              <div>
+                <label className="text-gray-500 text-sm">E-mail (Optional)</label>
+                <input
+                  type="email"
+                  placeholder="Customer's E-mail ID here"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  {...register("email", { required: "Email is required" })}
+                />
+                {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
+
+              </div>
+              {/* Table No */}
+              <div>
+                <label className="text-gray-500 text-sm">Table No</label>
+                <select className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex mt-6 space-x-4">
+              {/* <Button title={"View previous Orders"}/> */}
+              {/* <Button title={"Save"}/> */}
+              <button className="px-6 py-2 text-gray-400 bg-gray-50 rounded-full border border-gray-300">
+                View Previous Orders
+              </button>
+              <button className="px-7 py-2 bg-gray-300 text-gray-600 rounded-full"
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+          </form>
         </div>
 
         {/* Add Item Section */}
         <div className="mt-6 bg-white rounded-lg shadow-md p-6">
           <div className="flex items-center justify-between">
-            <button className="px-4 py-2 bg-purple-500 text-white rounded-lg">
+            <button className="px-10 py-2 bg-purple-500 text-white rounded-full">
               Add Item
             </button>
             <div className="w-1/3">
               <input
                 type="text"
                 placeholder="Search for items"
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full py-2 px-4 cashier-light-bg-color border-2 border-[--cashier-main-color] rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
           </div>
@@ -138,6 +171,8 @@ const Order =()=> {
 
         {/* Footer Buttons */}
         <div className="flex justify-between mt-6">
+          {/* <Button title={" Generate Invoice"}/>
+          <Button title={"Send to Kitchen"}/> */}
           <button className="px-6 py-2 bg-gray-100 text-gray-500 rounded-lg border border-gray-300">
             Generate Invoice
           </button>
@@ -148,17 +183,15 @@ const Order =()=> {
       </div>
 
       {/* Right Sidebar */}
-      <div
-        className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${
-          isRightSidebarOpen ? "w-80" : "w-9"
-        } overflow-hidden`}
+      <div className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-9"}`}
       >
-     
-          <span className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded absolute top-1/2"  onClick={toggleRightSidebar}>
-            <img src={Toggle} alt="" />
-          </span>
-        
-        {/* <RightSidebar/> */}
+        <span className="bg-blue-700 hover:bg-blue-700 font-bold p-1 cursor-pointer rounded-full absolute top-1/2 -left-5" onClick={toggleRightSidebar}>
+          {/* <img src={Toggle} alt="Loading" /> */}
+          <MdOutlineKeyboardDoubleArrowLeft className='text-3xl text-white font-semibold' />
+        </span>
+
+
+        <RightSidebar />
         {/* <FoodCard/> */}
       </div>
     </div>

@@ -30,7 +30,9 @@ const LeftSideNavbar = () => {
           <NavLink to={"/menu"}>
             <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Menu</li>
           </NavLink>
-          <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Orders</li>
+          <NavLink to={"/order"}>
+            <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Orders</li>
+          </NavLink>
           <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Schedule</li>
           <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Staff Data</li>
           <li className="flex cursor-pointer items-center hover:bg-[--cashier-main-color] hover:text-white hover:rounded-full mx-10 text-center my-3"><CircleIcons icon={menu} />Settings</li>

@@ -5,6 +5,7 @@ import UserLogin from "../../Common/UserLogin/userlogin";
 import Menu from "../../Pages/Menu/menu";
 import Table from "../../Pages/Table/table";
 import PreviousOrder from "../../Pages/PreviousOrder/previousOrder";
+import Order from "../../Pages/Order/order"
 const RouteRoutes = () => {
     return (
         <>
@@ -15,6 +16,8 @@ const RouteRoutes = () => {
                     <Route path="/menu" element={<Menu />}></Route>
                     <Route path="/table" element={<Table />}></Route>
                     <Route path="/previousorder" element={<PreviousOrder />}></Route>
+                    <Route path="/order" element={<Order />}></Route>
+
 
 
 
