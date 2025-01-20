@@ -7,6 +7,8 @@ import RightSidebar from "../../Common/SideNavbar/rightSideNavbar.jsx";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import Button from "../../Common/button/button.jsx";
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
+import Navbar from "../../Common/Navbar/navbar.jsx";
 // import FoodCard from "../../Common/Test/menuItems.jsx";
 const Order = () => {
   const {
@@ -16,14 +18,13 @@ const Order = () => {
     formState: { errors },
   } = useForm();
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
-
   const toggleRightSidebar = () => {
     setIsRightSidebarOpen(!isRightSidebarOpen);
   };
   const onSubmit = (data) => {
     console.log('data: ', data);
-
   }
+
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -32,7 +33,7 @@ const Order = () => {
 
       {/* Main Content Area */}
       <div className={`flex-grow p-4 transition-all duration-300`}>
-
+        {/* <Navbar /> */}
         {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-4">
           <span className="mr-2">Book Table</span> &gt;{" "}
@@ -55,34 +56,34 @@ const Order = () => {
             <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
               {/* Name */}
               <div>
-                <label className="text-gray-500 text-sm">Name</label>
+                <label className="text-black font-medium text-sm">Name</label>
                 <input
                   type="text"
                   placeholder="Customer's name here"
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  {...register("name", { required: "Name is required" })}
+                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  {...register("name")}
                 />
                 {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
 
               </div>
               {/* Contact No */}
               <div>
-                <label className="text-gray-500 text-sm">Contact No</label>
+                <label className="text-black font-medium text-sm">Contact No</label>
                 <input
                   type="text"
                   placeholder="Customer's contact no here"
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  {...register("number", { required: "Number is required" })}
+                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  {...register("number")}
                 />
                 {errors.number && <p className="text-red-500 text-xs">{errors.number.message}</p>}
 
               </div>
               {/* Order Type */}
               <div>
-                <label className="text-gray-500 text-sm">Order Type</label>
+                <label className="text-black font-medium text-sm">Order Type</label>
                 <select
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  {...register("orderType", { required: "Order type is required" })}
+                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  {...register("orderType")}
                 >
                   <option value="">Select Order Type</option>
                   <option value="Dine In">Dine In</option>
@@ -93,20 +94,21 @@ const Order = () => {
               </div>
               {/* Email */}
               <div>
-                <label className="text-gray-500 text-sm">E-mail (Optional)</label>
+                <label className="text-black font-medium text-sm">E-mail (Optional)</label>
                 <input
                   type="email"
                   placeholder="Customer's E-mail ID here"
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  {...register("email", { required: "Email is required" })}
+                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  {...register("email")}
                 />
                 {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
 
               </div>
               {/* Table No */}
               <div>
-                <label className="text-gray-500 text-sm">Table No</label>
-                <select className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <label className="text-black font-medium text-sm">Table No</label>
+                <select className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  >
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -119,9 +121,11 @@ const Order = () => {
             <div className="flex mt-6 space-x-4">
               {/* <Button title={"View previous Orders"}/> */}
               {/* <Button title={"Save"}/> */}
-              <button className="px-6 py-2 text-gray-400 bg-gray-50 rounded-full border border-gray-300">
-                View Previous Orders
-              </button>
+              <NavLink to={"/previousorder"}>
+                <button className="px-6 py-2 text-gray-400 bg-gray-50 rounded-full border border-gray-300">
+                  View Previous Orders
+                </button>
+              </NavLink>
               <button className="px-7 py-2 bg-gray-300 text-gray-600 rounded-full"
                 type="submit"
               >
@@ -183,7 +187,7 @@ const Order = () => {
       </div>
 
       {/* Right Sidebar */}
-      <div className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-9"}`}
+      <div className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-7"}`}
       >
         <span className="bg-blue-700 hover:bg-blue-700 font-bold p-1 cursor-pointer rounded-full absolute top-1/2 -left-5" onClick={toggleRightSidebar}>
           {/* <img src={Toggle} alt="Loading" /> */}

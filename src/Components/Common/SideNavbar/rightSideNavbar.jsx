@@ -7,6 +7,7 @@ import trash from '../../Assets/Images/sidebarImg/Trash.svg'
 import clendar from '../../Assets/Images/sidebarImg/calendar-tick.svg'
 import openSchedule from '../../Assets/Images/sidebarImg/openSchedule.svg'
 import closeSchedule from '../../Assets/Images/sidebarImg/openSchedule.svg'
+import { NavLink } from "react-router-dom";
 
 
 
@@ -18,13 +19,15 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className=" h-screen bg-gray-100">
+    <div className="h-screen">
       {/* Sidebar */}
-      <div className=" cashier-light-bg-color p-6 shadow-md z-0">
+      <div className="cashier-light-bg-color h-full rounded-l-3xl p-6 shadow-md z-0">
         {/* Create New Order Button */}
-        <button className="w-full  cashier-main-bg-color text-white py-2 px-4 rounded-full font-semibold">
+       <NavLink to={"/order"}>
+       <button className="w-full cashier-main-bg-color text-white py-2 px-4 rounded-full font-semibold">
           + Create New Order
         </button>
+       </NavLink>
 
         <div className="my-2 py-2 px-5 bg-[#ffffff4d] rounded-xl">
           <div className="text-center">
@@ -56,21 +59,21 @@ const RightSidebar = () => {
             <span className="  w-9 h-9 pt-1.5 text-center inline-block  rounded-full bg-green-400 shadow-xl font-semibold">
               6
             </span>{" "}
-            <span className="font-semibold ms-4">Active Tables</span>
+            <span className="font-semibold ms-4 lg:text-base md:text-sm">Active Tables</span>
           </div>
           <hr className="h-[2px] my-2 bg-white border-white" />
           <div className="mt-3">
             <span className="  w-9 h-9 pt-1.5 text-center inline-block  rounded-full bg-yellow-400 shadow-xl font-semibold">
               3
             </span>{" "}
-            <span className="font-semibold ms-4">Available Tables</span>
+            <span className="font-semibold ms-4 lg:text-base md:text-sm">Available Tables</span>
           </div>
           <hr className="h-[1.5px] my-2 bg-white border-white" />
           <div className="mt-3">
             <span className="  w-9 h-9 pt-1.5 text-center inline-block  rounded-full bg-red-400 shadow-xl font-semibold">
               20
             </span>{" "}
-            <span className="font-semibold ms-4">Reservations</span>
+            <span className="font-semibold ms-4 lg:text-base md:text-sm">Reservations</span>
           </div>
         </div>
 
@@ -196,7 +199,7 @@ const RightSidebar = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-6">Main Content Here</div>
+      {/* <div className="flex-1 p-6">Main Content Here</div> */}
     </div>
   );
 };

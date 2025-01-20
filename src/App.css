@@ -46,6 +46,9 @@
 .menu-red-borderCard{
   border-left: 3px solid #DA322F;
 }
+.bg-light-yellow{
+  background-color: rgba(255, 215, 0, 0.1);
+}
 
 .background-img {
   background-image: url(../src/Components/Assets/Images/background/background-img.png);

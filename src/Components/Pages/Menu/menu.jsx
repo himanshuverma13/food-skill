@@ -79,7 +79,7 @@ const Menu = () => {
                         {/* <MenuSlider /> */}
                     {/* </div> */}
                     <h1 className='font-bold text-xl'>Starters</h1>
-                    <div className={`grid mt-4 ${isRightSidebarOpen == true ? "grid-cols-4" : "grid-cols-5"} gap-4`}>
+                    <div className={`grid mt-4 ${isRightSidebarOpen == true ? "lg:grid-cols-4 md:grid-cols-2" : "lg:grid-cols-5 md:grid-cols-3"} gap-2`}>
                         {MenuCard.map((item, index) => (
                             <div key={index} className={`bg-white rounded-lg shadow-md px-2 py-2 w-56 ${item.cardBorder}`}>
                                 <div className='grid grid-cols-2'>
@@ -107,7 +107,7 @@ const Menu = () => {
 
                 {/* Right Sidebar Start */}
                 <div
-                    className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-9"}`}
+                    className={`bg-gray-200 transition-all duration-300 ease-in-out relative rounded-l-3xl ${isRightSidebarOpen ? "w-80" : "w-7"}`}
                 >
                     <span className="bg-blue-700 hover:bg-blue-700 font-bold p-1 rounded-full absolute top-1/2 -left-5" onClick={toggleRightSidebar}>
                         {/* <img src={Toggle} alt="Loading" /> */}
