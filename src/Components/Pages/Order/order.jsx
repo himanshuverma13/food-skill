@@ -17,7 +17,7 @@ const Order = () => {
   const {
     register,
     handleSubmit,
-    setValue,
+    setValue,watch,
     formState: { errors },
   } = useForm();
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
@@ -29,6 +29,13 @@ const Order = () => {
   const toggleRightSidebar = () => {
     setIsRightSidebarOpen(!isRightSidebarOpen);
   };
+
+  const nameInptField = watch('name')
+  const numberInptField = watch('number')
+  const orderTypeInptField = watch('orderType')
+  const emailInptField = watch('email')
+  
+
   const onSubmit = (data) => {
     const payload = {
       tableNo: params.tableNo,
@@ -75,7 +82,7 @@ const Order = () => {
                 <input
                   type="text"
                   placeholder="Customer's name here"
-                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  className={`w-full mt-1 p-2 border rounded-lg  bg-${nameInptField ? "" :"gray-200"} focus-visible:bg-white`}
                   {...register("name")}
                 />
                 {errors.name && (
@@ -88,7 +95,7 @@ const Order = () => {
                 <input
                   type="text"
                   placeholder="Customer's contact no here"
-                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  className={`w-full mt-1 p-2 border rounded-lg  bg-${numberInptField ? "" :"gray-200"} focus-visible:bg-white`}
                   {...register("number")}
                 />
                 {errors.number && (
@@ -101,7 +108,7 @@ const Order = () => {
               <div>
                 <label className="text-black font-medium text-sm">Order Type</label>
                 <select
-                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  className={`w-full mt-1 p-2 border rounded-lg  bg-${orderTypeInptField ? "" :"gray-200"} focus-visible:bg-white`}
                   {...register("orderType")}
                 >
                   <option value="">Select Order Type</option>
@@ -121,7 +128,7 @@ const Order = () => {
                 <input
                   type="email"
                   placeholder="Customer's E-mail ID here"
-                  className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  className={`w-full mt-1 p-2 border rounded-lg  bg-${emailInptField ? "" :"gray-200"} focus-visible:bg-white`}
                   {...register("email")}
                 />
                 {errors.email && (
@@ -130,9 +137,9 @@ const Order = () => {
               </div>
               {/* Table No */}
               <div>
-                <label className="text-black font-medium text-sm">Table No</label>
-                <select className="w-full mt-1 p-2 border rounded-lg focus-visible:bg-white"
-                >
+                <label className="text-black font-medium text-sm block">Table No</label>
+                <select className="w-1/4 mt-1 p-2 border rounded-lg focus-visible:bg-white"
+                  >
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -150,7 +157,7 @@ const Order = () => {
                   View Previous Orders
                 </button>
               </NavLink>
-              <button className="px-7 py-2 bg-gray-300 text-gray-600 rounded-full"
+              <button className={`px-7 py-2 ${ nameInptField && numberInptField && orderTypeInptField ? "cashier-main-bg-color text-white" : "bg-gray-400 text-gray-700 opacity-50 cursor-not-allowed"} text-gray-600 rounded-full`}
                 type="submit"
               >
                 Save

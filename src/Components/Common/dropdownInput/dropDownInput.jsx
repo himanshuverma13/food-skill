@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = () => {
+const DropDownInput = () => {
   const [inputValue, setInputValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -72,4 +72,4 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+export default DropDownInput;
