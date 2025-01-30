@@ -11,6 +11,7 @@ import Food3 from "../../Assets/Images/menuCard-img/food-3.jpeg";
 import OrderSideMenu from '../../Common/OrderSideMenu/ordersidemenu';
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import MenuDetailsCardSlider from '../../Common/MenuSlider/menudetailscardslider';
+import Navbar from '../../Common/Navbar/navbar';
 
 const Menu = () => {
     const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
@@ -75,9 +76,14 @@ const Menu = () => {
                 <LeftSideNavbar />
                 {/* Main Content Area */}
                 <div className={`flex-grow p-4 transition-all duration-300`}>
-                    {/* <div className='grid grid-cols-1'> */}
-                        {/* <MenuSlider /> */}
-                    {/* </div> */}
+                    <div className="text-sm text-gray-500 mb-4">
+                        <span className="mr-2">Generate Order</span> &gt;{" "}
+                        <span className="ml-2"> Add Item</span>
+                    </div>
+                    <Navbar/>
+                    <div className='grid grid-cols-1'>
+                    <MenuSlider />
+                    </div>
                     <h1 className='font-bold text-xl'>Starters</h1>
                     <div className={`grid mt-4 ${isRightSidebarOpen == true ? "lg:grid-cols-4 md:grid-cols-2" : "lg:grid-cols-5 md:grid-cols-3"} gap-2`}>
                         {MenuCard.map((item, index) => (
@@ -103,7 +109,7 @@ const Menu = () => {
                     </div>
                 </div>
                 {/* <OrderSideMenu /> */}
-               
+
 
                 {/* Right Sidebar Start */}
                 <div
@@ -120,8 +126,8 @@ const Menu = () => {
             </div>
 
 
-              {/* Menu Details Card Slider */}
-              {MenuCardOpen && (
+            {/* Menu Details Card Slider */}
+            {MenuCardOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg relative max-w-4xl w-full">
                         <button
