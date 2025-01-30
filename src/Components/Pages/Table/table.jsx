@@ -88,7 +88,7 @@ const Table = () => {
             {isRightSidebarOpen ? "Close" : "Open"}
           </button> */}
         <span
-          className="bg-blue-700 hover:bg-blue-700 font-bold p-3 rounded-full absolute top-1/2 -left-5"
+          className="bg-blue-700 hover:bg-blue-700 font-bold p-1 rounded-full absolute top-1/2 -left-5"
           onClick={toggleRightSidebar}
         >
              <MdOutlineKeyboardDoubleArrowLeft className='text-3xl text-white font-semibold' />
